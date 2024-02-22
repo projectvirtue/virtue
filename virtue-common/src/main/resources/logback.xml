@@ -1,0 +1,26 @@
+<configuration>
+    <appender name="ASYNC" class="ch.qos.logback.classic.AsyncAppender">
+        <!-- 设置队列大小 -->
+        <queueSize>512</queueSize>
+        <!-- 设置事件分发器 -->
+        <discardingThreshold>0</discardingThreshold>
+        <appender-ref ref="CONSOLE"/>
+    </appender>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%white(%d{yyyy-MM-dd HH:mm:ss}) %magenta([%thread]) %clr(%-5level) %cyan(%logger{36}): %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+    <conversionRule conversionWord="clr"
+                    converterClass="io.github.taikonaut3.virtue.common.logback.LevelHighlightConverter"/>
+
+    <root level="INFO">
+        <appender-ref ref="ASYNC"/>
+    </root>
+
+    <!-- 定义要打印的包 -->
+    <logger name="io.github.taikonaut3.virtue" level="DEBUG"/>
+
+</configuration>

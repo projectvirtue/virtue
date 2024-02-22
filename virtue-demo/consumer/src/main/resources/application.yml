@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: consumer
+  cloud:
+    consul:
+      discovery:
+        prefer-ip-address: true
+server:
+  port: 8082
